@@ -1,0 +1,48 @@
+# Input and output directories
+input/*
+output/*
+
+# Keep directory structure
+!input/.gitkeep
+!output/.gitkeep
+
+# Audio files
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.ogg
+*.flac
+
+# Video files
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.wmv
+*.webm
+
+# Transcription artifacts
+*.txt
+*.json
+!README.md
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.local
