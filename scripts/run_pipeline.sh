@@ -29,6 +29,7 @@ if [[ $# -lt 1 ]]; then
     echo "  SILENCE_DURATION   Min silence to remove (default: 2.0s)"
     echo "  CHUNK_DURATION     Chunk length in seconds (default: 1800)"
     echo "  PARALLEL_JOBS      Parallel transcriptions (default: 2)"
+    echo "  CLEANUP            Remove intermediate files when done (default: false)"
     exit 1
 fi
 
@@ -91,3 +92,9 @@ echo "Pipeline complete!"
 echo "=========================================="
 echo ""
 echo "Final transcription: $OUTPUT_DIR/final_transcription.txt"
+
+# Optional cleanup
+if [[ "${CLEANUP:-false}" == "true" ]]; then
+    echo ""
+    "$SCRIPT_DIR/cleanup.sh" "$OUTPUT_DIR"
+fi

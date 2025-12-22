@@ -103,8 +103,6 @@ You can run each step individually for debugging or custom workflows:
 ./scripts/merge_transcriptions.sh output/transcriptions/ output/final_transcription.txt
 ```
 
-### Example Command
-
 ```bash
 # Process a lecture video
 export OPENAI_API_KEY="sk-proj-xxxxx"
@@ -112,6 +110,26 @@ export OPENAI_API_KEY="sk-proj-xxxxx"
 
 # Output will be in: output/final_transcription.txt
 ```
+
+### Cleanup Intermediate Files
+
+After transcription, you can remove intermediate files to save disk space:
+
+```bash
+# Option 1: Run cleanup manually
+./scripts/cleanup.sh output/
+
+# Option 2: Auto-cleanup with full pipeline
+CLEANUP=true ./scripts/run_pipeline.sh input/video.mp4
+```
+
+**What gets removed:**
+- `audio_raw.wav`, `audio_trimmed.wav`, `audio_compressed.mp3`
+- `chunks/` directory
+- `transcriptions/` directory
+
+**What is kept:**
+- `final_transcription.txt`
 
 ## Output Structure
 
